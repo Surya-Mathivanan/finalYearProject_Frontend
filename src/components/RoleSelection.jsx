@@ -35,16 +35,16 @@ function RoleSelection({ setCurrentView, setInterviewData }) {
 
   return (
     <div className="form-container">
-      <h2 className="section-title">Select Interview Role</h2>
+      <h2 className="section-title">Choose Your Career Path</h2>
       
       <div className="form-group">
-        <label className="form-label">Job Role</label>
+        <label className="form-label">Target Position</label>
         <select 
           className="form-select"
           value={role}
           onChange={(e) => setRole(e.target.value)}
         >
-          <option value="">Select a role...</option>
+          <option value="">What role are you preparing for?</option>
           {roles.map(roleOption => (
             <option key={roleOption.value} value={roleOption.value}>
               {roleOption.label}
@@ -54,16 +54,16 @@ function RoleSelection({ setCurrentView, setInterviewData }) {
       </div>
       
       <div className="form-group">
-        <label className="form-label">Difficulty Level</label>
+        <label className="form-label">Experience Level</label>
         <select 
           className="form-select"
           value={difficulty}
           onChange={(e) => setDifficulty(e.target.value)}
         >
-          <option value="">Select difficulty...</option>
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
+          <option value="">What's your experience level?</option>
+          <option value="beginner">Beginner - Just starting out</option>
+          <option value="intermediate">Intermediate - Some experience</option>
+          <option value="advanced">Advanced - Senior level</option>
         </select>
       </div>
       
@@ -72,14 +72,14 @@ function RoleSelection({ setCurrentView, setInterviewData }) {
         onClick={handleStartInterview}
         disabled={!role || !difficulty}
       >
-        Start Interview
+        Launch Interview Experience
       </button>
       
       <button 
         className="btn-secondary" 
         onClick={() => setCurrentView('mode-selection')}
       >
-        Back to Mode Selection
+        ← Back to Options
       </button>
     </div>
   );

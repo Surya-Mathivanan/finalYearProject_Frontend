@@ -42,23 +42,23 @@ function Dashboard({ user, setUser }) {
       case 'mode-selection':
         return (
           <div className="mode-selection">
-            <h2 className="section-title">Choose Interview Mode</h2>
+            <h2 className="section-title">Choose Your Interview Experience</h2>
             <div className="mode-buttons">
               <button 
                 className="mode-btn"
                 onClick={() => setCurrentView('resume-upload')}
               >
-                Resume-Based Interview
-                <br />
-                <small>Upload your resume for personalized questions</small>
+                <div className="mode-icon">📄</div>
+                <div className="mode-title">Resume-Based Interview</div>
+                <small>Upload your resume for personalized questions tailored to your experience</small>
               </button>
               <button 
                 className="mode-btn"
                 onClick={() => setCurrentView('role-selection')}
               >
-                Role-Based Interview
-                <br />
-                <small>Select a specific job role for targeted questions</small>
+                <div className="mode-icon">🎯</div>
+                <div className="mode-title">Role-Based Interview</div>
+                <small>Select a specific job role for targeted questions and industry-specific scenarios</small>
               </button>
             </div>
           </div>
@@ -106,8 +106,16 @@ function Dashboard({ user, setUser }) {
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <div className="welcome-text">Welcome, {user.username}!</div>
+        <div className="welcome-text">
+          <span className="greeting">Welcome back,</span>
+          <span className="username">{user.username}!</span>
+        </div>
         <button className="logout-btn" onClick={handleLogout}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16,17 21,12 16,7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
           Logout
         </button>
       </div>

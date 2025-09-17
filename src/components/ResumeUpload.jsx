@@ -83,12 +83,12 @@ function ResumeUpload({ setCurrentView, setInterviewData }) {
 
   return (
     <div className="form-container">
-      <h2 className="section-title">Upload Your Resume</h2>
+      <h2 className="section-title">Share Your Professional Story</h2>
       
       <div className="form-group">
-        <label className="form-label">Upload PDF Resume</label>
+        <label className="form-label">Resume Document</label>
         <div 
-          className="file-upload"
+          className={`file-upload ${selectedFile ? 'has-file' : ''}`}
           onDragOver={handleDragOver}
           onDrop={handleDrop}
           onClick={() => document.getElementById('resume-upload').click()}
@@ -102,31 +102,31 @@ function ResumeUpload({ setCurrentView, setInterviewData }) {
           />
           <div className="file-upload-text">
             {selectedFile ? (
-              <span>✓ {selectedFile.name}</span>
+              <span>{selectedFile.name}</span>
             ) : (
-              <span>Click to upload your PDF resume or drag and drop</span>
+              <span>Drop your PDF resume here or click to browse</span>
             )}
           </div>
         </div>
       </div>
 
       <div className="form-group">
-        <label className="form-label">Difficulty Level</label>
+        <label className="form-label">Interview Complexity</label>
         <select 
           className="form-select" 
           value={difficulty} 
           onChange={(e) => setDifficulty(e.target.value)}
         >
-          <option value="">Select difficulty...</option>
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
+          <option value="">Choose your challenge level...</option>
+          <option value="beginner">Beginner - Entry level questions</option>
+          <option value="intermediate">Intermediate - Mid-level challenges</option>
+          <option value="advanced">Advanced - Senior level scenarios</option>
         </select>
       </div>
 
       {keywords.length > 0 && (
         <div className="form-group">
-          <label className="form-label">Extracted Keywords</label>
+          <label className="form-label">Key Skills Identified</label>
           <div className="keywords-display">
             {keywords.map((keyword, index) => (
               <span key={index} className="keyword-tag">{keyword}</span>
@@ -140,14 +140,14 @@ function ResumeUpload({ setCurrentView, setInterviewData }) {
         onClick={handleUpload}
         disabled={!selectedFile || !difficulty || uploading}
       >
-        Process Resume & Start Interview
+        {uploading ? 'Processing...' : 'Begin Your Interview Journey'}
       </button>
       
       <button 
         className="btn-secondary" 
         onClick={() => setCurrentView('mode-selection')}
       >
-        Back to Mode Selection
+        ← Back to Options
       </button>
     </div>
   );
