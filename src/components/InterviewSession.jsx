@@ -263,8 +263,8 @@ function InterviewSession({ interviewData, setCurrentView, setFeedbackData }) {
                 Previous
               </button>
             )}
-            
-            <button className="btn btn-primary" onClick={handleAnswerSubmit}>
+
+            <button className="btn btn-primary gradient-btn" onClick={handleAnswerSubmit}>
               {currentQuestionIndex === questions.length - 1 ? 'Complete Interview' : 'Next Question'}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polyline points="9,18 15,12 9,6"/>

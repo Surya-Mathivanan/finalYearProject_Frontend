@@ -138,14 +138,17 @@ function ResumeUpload({ setCurrentView, setInterviewData }) {
         )}
 
         <div className="interview-actions">
-          <button 
-            className="btn btn-secondary" 
+          <button
+            className="btn btn-secondary"
             onClick={() => setCurrentView('mode-selection')}
           >
-            ← Back
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            Back
           </button>
           <button
-            className="btn btn-primary"
+            className="btn btn-primary gradient-btn"
             onClick={handleUpload}
             disabled={!selectedFile || !difficulty || uploading}
           >
